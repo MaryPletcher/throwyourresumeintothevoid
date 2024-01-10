@@ -92,12 +92,14 @@ header {
     /* top: 560px;
     left: 840px; */
     z-index: 1;
-
-    outline: 2px solid blue;
-    animation: spiralAnimation 6s linear infinite;
+    outline: 2px solid blue; 
     
-
 }
+
+/* #resume
+{
+    animation: spiralAnimation 6s linear infinite;
+} */
 
 .resume img {
     width: 100%;
@@ -112,4 +114,8 @@ header {
     100% {
         transform: translate(50%,50% ) rotate(360deg) scale(0);
     }
+}
+
+.animate {
+    animation: spiralAnimation 6s linear ;
 }

@@ -1,5 +1,7 @@
 const dragArea = document.querySelector('.drag-area');
 const resume = document.querySelector('.resume');
+const resumeElement = document.getElementById('resume');
+
 
 let button = document.querySelector('.button');
 let input = document.querySelector('.hidden');
@@ -41,10 +43,13 @@ dragArea.addEventListener('drop', (event) => {
     file = event.dataTransfer.files[0];
     console.log(file);
     displayFile();
-    
+    resumeElement.classList.add('animate');
     });
     //console.log('The file is dropped') ;
 
+resumeElement.addEventListener('animationend', () => {
+    resumeElement.classList.remove('animate');
+    });
 function displayFile() {
     let fileType = file.type;
     //console.log(fileType);
@@ -63,9 +68,12 @@ function displayFile() {
             
         };
         fileReader.readAsDataURL(file);
+        
     } else {
         alert('the void does not accept your offering (try an image, pdf, or word document)');
     }
+
+    
     //console.log('The file is dropped') ;
 
     
