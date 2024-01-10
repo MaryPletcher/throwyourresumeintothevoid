@@ -1,0 +1,115 @@
+:root {
+    --mouseX: 0;
+    --mouseY: 0;
+}
+* {
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url("media/background.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+h2 {
+    width: 1190px;
+    
+    color: #FFF;
+    padding-bottom: both;
+    text-indent: cap;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    position: absolute;
+    top: 92px;
+    left: 180px;
+
+    z-index: 1;
+}
+
+header {
+    width: 1050px;
+    color: #FFF;
+    padding-bottom: both;
+    text-indent: cap;
+    font-family: Helvetica;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+    position: absolute;
+    top: 120px;
+    left: 180px;
+
+    z-index: 1;
+}
+
+/*void things*/
+.void {
+    width: 708px;
+    height: 708px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 156px;
+    z-index: 0;
+    
+    /* animations */
+    animation: rotateAnimation 10s linear infinite; /* Adjust duration and timing function as needed */
+}
+
+/*animate the void*/
+@keyframes rotateAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);/
+    }
+}
+
+
+.drag-area {
+    width: 708px;
+    height: 708px;
+    position: absolute;
+    top: 156px;
+    z-index: 1;
+    
+}
+
+.resume {
+    width: 110px;
+    height: 144px;
+    flex-shrink: 0;
+    /* position: absolute; */
+    /* top: 560px;
+    left: 840px; */
+    z-index: 1;
+
+    outline: 2px solid blue;
+    animation: spiralAnimation 6s linear infinite;
+    
+
+}
+
+.resume img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes spiralAnimation {
+    0% {
+        transform: translate(0%, 0%) rotate(0deg);
+    }
+    100% {
+        transform: translate(50%,50% ) rotate(360deg) scale(0);
+    }
+}
