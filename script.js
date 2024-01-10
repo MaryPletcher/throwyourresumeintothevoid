@@ -49,6 +49,7 @@ dragArea.addEventListener('drop', (event) => {
 
 resumeElement.addEventListener('animationend', () => {
     resumeElement.classList.remove('animate');
+    resumeElement.style.display = 'none';
     });
 function displayFile() {
     let fileType = file.type;
