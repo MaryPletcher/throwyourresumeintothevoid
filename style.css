@@ -65,6 +65,7 @@ header {
     animation: rotateAnimation 10s linear infinite; /* Adjust duration and timing function as needed */
 }
 
+
 /*animate the void*/
 @keyframes rotateAnimation {
     from {

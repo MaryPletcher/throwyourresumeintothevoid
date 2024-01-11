@@ -2,6 +2,14 @@ const dragArea = document.querySelector('.drag-area');
 const resume = document.querySelector('.resume');
 const resumeElement = document.getElementById('resume');
 
+const container = document.querySelector('.void');
+ // Define parameters for the circular motion
+ const originX = container.offsetWidth / 2; // X-coordinate of the circle's center
+ const originY = container.offsetHeight / 2; // Y-coordinate of the circle's center
+//  const radius = 200; // Radius of the circle
+ const speed = 0.02; // Speed of the animation
+ let angle = 0; // Initial angle
+
 
 let button = document.querySelector('.button');
 let input = document.querySelector('.hidden');
@@ -33,8 +41,9 @@ dragArea.addEventListener('drop', (event) => {
     resume.style.top = MouseY+ "px";
     displayFile();
 
-    resume.classList.add('animate');
-
+    //resume.classList.add('animate');
+    const radius = Math.abs(parseInt(resume.style.left) - originX);
+    animate(radius);
     
     });
     //console.log('The file is dropped') ;
@@ -73,4 +82,21 @@ function displayFile() {
         resumeElement.style.display = 'none';
         });
     
+}
+
+
+function animate(radius) {
+    console.log("radius: ", radius);
+    // Calculate the position of the moving element at the current angle
+    const x = originX + radius * Math.cos(angle);
+    const y = originY + radius * Math.sin(angle);
+    // Set the position of the moving element
+    resume.style.left = x - resume.offsetWidth / 2 + 'px';
+    resume.style.top = y - resume.offsetHeight / 2 + 'px';
+
+    // Increment the angle for the next frame
+    angle += speed;
+
+    // Request the next animation frame
+    requestAnimationFrame(animate);
 }
