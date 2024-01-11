@@ -7,27 +7,20 @@ let button = document.querySelector('.button');
 let input = document.querySelector('.hidden');
 let file;
 
+let MouseX;
+let MouseY;
 // button.onclick = () => {
 //     input.click();
 // };
 
 
-// document.addEventListener('mousemove', (e) => {
-//     document.documentElement.style.setProperty('--mouseX', e.clientX + 'px');
-//     document.documentElement.style.setProperty('--mouseY', e.clientY + 'px');
-//     console.log('MouseX:', e.clientX, 'MouseY:', e.clientY);
-// });
 
 
-//when browse
-// input.addEventListener('change', function() {
-//     file = this.files[0];
-//     displayFile();
 
-// });
+
 //when file is inside the drag area
-dragArea.addEventListener('dragover', (event) => {
-    event.preventDefault();
+dragArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
     console.log('File is inside the drag area') 
 });
 
@@ -39,18 +32,29 @@ dragArea.addEventListener('dragleave', () => {
 //when file is dropped 
 dragArea.addEventListener('drop', (event) => {
     event.preventDefault();
-
     file = event.dataTransfer.files[0];
     console.log(file);
+    MouseX = event.clientX;
+    MouseY = event.clientY;
+    console.log('MouseX:', MouseX, 'MouseY:', MouseY);
+    resume.style.left = MouseX + "px";
+    resume.style.top = MouseY+ "px";
+    console.log('ResumeX: ', resumeElement.style.left, "ResumeY: ", resumeElement.style.top);
     displayFile();
-    resumeElement.classList.add('animate');
+
+
+    const rect = resume.getBoundingClientRect();
+    console.log('ResumeX: ', rect.left, 'ResumeY: ', rect.top);
+
+   //console.log('ResumeX: ', resumeElement.style.left, "ResumeY: ", resumeElement.style.top);
+
+    //resumeElement.classList.add('animate');
+
+    
     });
     //console.log('The file is dropped') ;
 
-resumeElement.addEventListener('animationend', () => {
-    resumeElement.classList.remove('animate');
-    resumeElement.style.display = 'none';
-    });
+
 function displayFile() {
     let fileType = file.type;
     //console.log(fileType);
@@ -77,5 +81,11 @@ function displayFile() {
     
     //console.log('The file is dropped') ;
 
+
+    resumeElement.addEventListener('animationend', () => {
+        resumeElement.classList.remove('animate');
+        //fileReader = null;
+        resumeElement.style.display = 'none';
+        });
     
 }
