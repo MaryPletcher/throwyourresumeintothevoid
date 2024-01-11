@@ -108,7 +108,7 @@ header {
     object-fit: cover;
 }
 
-@keyframes spiralAnimation {
+/* @keyframes spiralAnimation {
     0% {
         transform: translate(0%, 0%) rotate(0deg);
     }
@@ -119,4 +119,4 @@ header {
 
 .animate {
     animation: spiralAnimation 6s linear ;
-}
+} */

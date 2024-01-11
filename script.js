@@ -13,8 +13,6 @@ const container = document.body;
  let angle = 0; // Initial angle
 
 
-let button = document.querySelector('.button');
-let input = document.querySelector('.hidden');
 let file;
 
 let MouseX;
@@ -68,9 +66,17 @@ function displayFile() {
         fileReader.onload = () => {
             let fileURL = fileReader.result;
             //console.log(fileURL);
-            let imgTag = `<img src = "${fileURL}" alt = "">`;
-            resume.innerHTML = imgTag;
-            
+            if (fileType == 'application/pdf') {
+                // For PDF files, render the first page to an image
+                
+                //https://www.npmjs.com/package/pdf2pic
+
+                let imgTag = `<img src = "${fileURL}" alt = "your resume">`;
+                resume.innerHTML = imgTag;
+            } else {
+                let imgTag = `<img src = "${fileURL}" alt = "your resume">`;
+                resume.innerHTML = imgTag;
+            }
         };
         fileReader.readAsDataURL(file);
         
