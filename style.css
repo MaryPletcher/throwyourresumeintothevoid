@@ -89,25 +89,14 @@ header {
     width: 110px;
     height: 144px;
     flex-shrink: 0;
-    /* position: absolute; */
     /* top: 560px;
     left: 840px; */
     z-index: 1;
     outline: 2px solid blue; 
-    position: absolute;
+    position: absolute; 
 }
 
-/* #resume {
-    width: 110px;
-    height: 144px;
-    flex-shrink: 0;
-    /* position: absolute; */
-    /* top: 560px;
-    left: 840px; */
-    /* z-index: 1;
-    outline: 2px solid blue; 
-    position:absolute;
-} */ 
+
 
 
 
@@ -123,7 +112,7 @@ header {
         transform: translate(0%, 0%) rotate(0deg);
     }
     100% {
-        transform: translate(786px, 786px) rotate(360deg) scale(0);
+        transform:  translate(50%, 50%) rotate(360deg) scale(0);
     }
 }
 

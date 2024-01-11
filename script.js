@@ -9,14 +9,6 @@ let file;
 
 let MouseX;
 let MouseY;
-// button.onclick = () => {
-//     input.click();
-// };
-
-
-
-
-
 
 //when file is inside the drag area
 dragArea.addEventListener('dragover', (e) => {
@@ -39,16 +31,9 @@ dragArea.addEventListener('drop', (event) => {
     console.log('MouseX:', MouseX, 'MouseY:', MouseY);
     resume.style.left = MouseX + "px";
     resume.style.top = MouseY+ "px";
-    console.log('ResumeX: ', resumeElement.style.left, "ResumeY: ", resumeElement.style.top);
     displayFile();
 
-
-    const rect = resume.getBoundingClientRect();
-    console.log('ResumeX: ', rect.left, 'ResumeY: ', rect.top);
-
-   //console.log('ResumeX: ', resumeElement.style.left, "ResumeY: ", resumeElement.style.top);
-
-    //resumeElement.classList.add('animate');
+    resume.classList.add('animate');
 
     
     });
