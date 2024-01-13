@@ -9,7 +9,7 @@ const container = document.body;
  const originY = container.offsetHeight / 2+65; // Y-coordinate of the void's center
 
  console.log("originX: ", originX, "originY: ", originY);
- let speed = 0.02; // Speed of the animation
+ let speed = 0.03; // Speed of the animation, higher number -> faster speed
  let angle = 0; // Initial angle
 
 
@@ -98,19 +98,23 @@ function displayFile() {
 
 
 function animate() {
-    resumeX = resume.style.left + resume.offsetWidth/2;
-    resumeY = resume.style.top + resume.offsetHeight/2;
+    resumeX = resume.style.left// + resume.offsetWidth/2;
+    resumeY = resume.style.top //+ resume.offsetHeight/2;
     let radius = Math.sqrt((Math.abs((parseInt(resumeX) - originX) ** 2)) + (Math.abs((parseInt(resumeY) - originY) ** 2)));
     console.log("radius: ", radius);
     let tanAngle = Math.atan2(
         parseInt(resumeX) - originY,
         parseInt(resumeY) - originX
     )
+    console.log("tanAngle: ", tanAngle);
     function animationFrame() {
-        const newX = originX + radius * Math.cos(tanAngle);
-        const newY = originY + radius * Math.sin(tanAngle);
-
+        let newX = originX  + radius * Math.cos(tanAngle);
+        let newY = originY  + radius * Math.sin(tanAngle);
+        console.log("newX: ", newX, "newY: ", newY);
         //update position to follow spiral
+        // resume.style.left = newX  + 'px';
+        // resume.style.top = newY + 'px';
+
         resume.style.left = newX - resume.offsetWidth/2 + 'px';
         resume.style.top = newY - resume.offsetHeight/2 + 'px';
 
@@ -126,7 +130,7 @@ function animate() {
 
         tanAngle += speed;
         radius = Math.max(radius - Math.log(radius + 1) * speed*2, 0);;
-        speed += .0005;
+        // speed += .0005;
         if (radius > 0 ) {
             requestAnimationFrame(animationFrame);
         }
