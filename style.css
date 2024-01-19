@@ -93,7 +93,7 @@ header {
     /* top: 560px;
     left: 840px; */
     z-index: 1;
-    outline: 2px solid blue; 
+    /* outline: 2px solid blue;  */
     position: absolute; 
 }
 

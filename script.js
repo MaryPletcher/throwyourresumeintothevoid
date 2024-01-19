@@ -65,14 +65,23 @@ function displayFile() {
 
         fileReader.onload = () => {
             let fileURL = fileReader.result;
+            
             //console.log(fileURL);
             if (fileType == 'application/pdf') {
-                // For PDF files, render the first page to an image
-                
-                //https://www.npmjs.com/package/pdf2pic
 
+                // pdfjsLib.getDocument(fileURL);
+
+                // For PDF files, render the first page to an image
                 let imgTag = `<img src = "${fileURL}" alt = "your resume">`;
                 resume.innerHTML = imgTag;
+                // console.log(pdf.getPage(1));
+                // pdf.getPage(1).then(function(page) {
+                //     let imgTag = `<img src = "${page}" alt = "your resume">`;
+                //     resume.innerHTML = imgTag;
+                //   });
+                //https://www.npmjs.com/package/pdf2pic
+
+                
             } else {
                 let imgTag = `<img src = "${fileURL}" alt = "your resume">`;
                 resume.innerHTML = imgTag;
@@ -112,8 +121,6 @@ function animate() {
         let newY = originY  + radius * Math.sin(tanAngle);
         console.log("newX: ", newX, "newY: ", newY);
         //update position to follow spiral
-        // resume.style.left = newX  + 'px';
-        // resume.style.top = newY + 'px';
 
         resume.style.left = newX - resume.offsetWidth/2 + 'px';
         resume.style.top = newY - resume.offsetHeight/2 + 'px';
@@ -125,7 +132,7 @@ function animate() {
         // Update rotation
         // const rotation = tanAngle; // You might need to adjust the rotation factor
         // resume.style.transform += ` rotate(${rotation}rad)`;
-
+        
 
 
         tanAngle += speed;
