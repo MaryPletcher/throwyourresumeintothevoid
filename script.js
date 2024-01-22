@@ -68,18 +68,18 @@ function displayFile() {
             
             //console.log(fileURL);
             if (fileType == 'application/pdf') {
+                var loadingTask = pdfjsLib.getDocument(fileURL);
+                loadingTask.promise.then(function(pdf) {
+                // you can now use *pdf* here
+                });
 
-                // pdfjsLib.getDocument(fileURL);
 
+                // pdf_doc = pdfjsLib.getDocument({ url: fileURL });
+                // page = pdf_doc.getPage(1);
                 // For PDF files, render the first page to an image
-                let imgTag = `<img src = "${fileURL}" alt = "your resume">`;
+                let imgTag = `<img src = "${page}" alt = "your resume">`;
                 resume.innerHTML = imgTag;
-                // console.log(pdf.getPage(1));
-                // pdf.getPage(1).then(function(page) {
-                //     let imgTag = `<img src = "${page}" alt = "your resume">`;
-                //     resume.innerHTML = imgTag;
-                //   });
-                //https://www.npmjs.com/package/pdf2pic
+                
 
                 
             } else {
