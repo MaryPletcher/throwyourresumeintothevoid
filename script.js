@@ -77,7 +77,7 @@ function displayFile() {
                 // pdf_doc = pdfjsLib.getDocument({ url: fileURL });
                 // page = pdf_doc.getPage(1);
                 // For PDF files, render the first page to an image
-                let imgTag = `<img src = "media/YourResume.png" alt = "your resume">`;
+                let imgTag = `<img src = "media/YourResume.svg" alt = "your resume">`;
                 resume.innerHTML = imgTag;
                 
 
@@ -129,9 +129,6 @@ function animate() {
         const scale = radius / 200; // Adjust the scale factor as needed
         resume.style.transform = `scale(${scale})`;
 
-        // Update rotation
-        // const rotation = tanAngle; // You might need to adjust the rotation factor
-        // resume.style.transform += ` rotate(${rotation}rad)`;
         
 
 

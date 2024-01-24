@@ -62,7 +62,16 @@ header {
     z-index: 0;
     
     /* animations */
-    animation: rotateAnimation 10s linear infinite; /* Adjust duration and timing function as needed */
+    animation: rotateAnimation 8s linear infinite; /* Adjust duration and timing function as needed */
+}
+
+.instructions {
+    flex-shrink: 0;
+    position: absolute;
+    top: 619px;
+    left: 730px;
+    z-index: 0;
+    
 }
 
 
