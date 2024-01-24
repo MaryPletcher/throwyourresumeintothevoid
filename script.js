@@ -68,16 +68,16 @@ function displayFile() {
             
             //console.log(fileURL);
             if (fileType == 'application/pdf') {
-                var loadingTask = pdfjsLib.getDocument(fileURL);
-                loadingTask.promise.then(function(pdf) {
-                // you can now use *pdf* here
-                });
+                // var loadingTask = pdfjsLib.getDocument(fileURL);
+                // loadingTask.promise.then(function(pdf) {
+                // // you can now use *pdf* here
+                // });
 
 
                 // pdf_doc = pdfjsLib.getDocument({ url: fileURL });
                 // page = pdf_doc.getPage(1);
                 // For PDF files, render the first page to an image
-                let imgTag = `<img src = "${page}" alt = "your resume">`;
+                let imgTag = `<img src = "media/YourResume.png" alt = "your resume">`;
                 resume.innerHTML = imgTag;
                 
 
