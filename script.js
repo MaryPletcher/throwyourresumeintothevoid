@@ -5,8 +5,8 @@ const container = document.body;
 
 
  // Define parameters for the spiral motion
- const originX = container.offsetWidth / 2; // X-coordinate of the void's center
- const originY = container.offsetHeight / 2 +185; // Y-coordinate of the void's center
+ let originX = container.offsetWidth / 2; // X-coordinate of the void's center
+ let originY = container.offsetHeight / 2 +185; // Y-coordinate of the void's center
 
  console.log("originX: ", originX, "originY: ", originY);
  let speed = 0.03; // Speed of the animation, higher number -> faster speed
@@ -36,6 +36,8 @@ dragArea.addEventListener('dragleave', () => {
 
 //when file is dropped 
 dragArea.addEventListener('drop', (event) => {
+    originX = container.offsetWidth / 2; // X-coordinate of the void's center
+    originY = container.offsetHeight / 2 +185; // Y-coordinate of the void's center
     event.preventDefault();
     file = event.dataTransfer.files[0];
     console.log(file);
