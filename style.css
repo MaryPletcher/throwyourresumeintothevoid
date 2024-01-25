@@ -9,12 +9,19 @@
 }
 body {
     background: url("media/background.png");
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; */
     
 }
+
+.top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left; 
+}
+
 h2 {
     width: 1190px;
     
@@ -27,7 +34,8 @@ h2 {
     font-weight: 700;
     line-height: normal;
 
-    position: absolute;
+    padding-right: 50px;
+    position: relative;
     top: 92px;
     left: 180px;
 
@@ -45,7 +53,7 @@ header {
     font-weight: 800;
     line-height: normal;
 
-    position: absolute;
+    position: relative;
     top: 120px;
     left: 180px;
 
@@ -53,12 +61,18 @@ header {
 }
 
 /*void things*/
+.voidthings {
+    display: flex;
+    justify-content: center;
+
+}
 .void {
     width: 708px;
     height: 708px;
     flex-shrink: 0;
     position: absolute;
     top: 156px;
+    
     z-index: 0;
     
     /* animations */
@@ -67,9 +81,9 @@ header {
 
 .instructions {
     flex-shrink: 0;
-    position: absolute;
-    top: 619px;
-    left: 730px;
+    position: relative;
+    top: 260px;
+    left: 125px;
     z-index: 0;
     
 }
@@ -99,8 +113,6 @@ header {
     width: 110px;
     height: 144px;
     flex-shrink: 0;
-    /* top: 560px;
-    left: 840px; */
     z-index: 1;
     /* outline: 2px solid blue;  */
     position: absolute; 
@@ -117,15 +129,3 @@ header {
     object-fit: cover;
 }
 
-/* @keyframes spiralAnimation {
-    0% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-    100% {
-        transform:  translate(50%, 50%) rotate(360deg) scale(0);
-    }
-}
-
-.animate {
-    animation: spiralAnimation 6s linear ;
-} */
